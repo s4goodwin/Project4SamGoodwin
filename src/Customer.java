@@ -18,5 +18,16 @@ public abstract class Customer {
     public double payOutstandingBalance(){
         return 0.0;
     }
+
+    public void arrangeDelivery(){
+        System.out.println("Delivery for "+Name+" can be delivered anytime");
+    }
+
+    public String getName() {
+        return Name;
+    }
+
 }
+
+
 

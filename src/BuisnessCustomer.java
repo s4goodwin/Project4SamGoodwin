@@ -50,4 +50,9 @@ public class BuisnessCustomer extends Customer{
         purchaseOrderBalance=0;
         return payvalue;
     }
+
+    @Override
+    public void arrangeDelivery(){
+        System.out.println("All deliveries for "+getName()+" must be from 9 to 5 mon-fri");
+    }
 }
