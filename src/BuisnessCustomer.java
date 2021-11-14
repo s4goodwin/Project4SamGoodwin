@@ -14,5 +14,31 @@ public class BuisnessCustomer extends Customer{
     }
 
     @Override
-    public double payForOrder(ArrayList<merchandiseItem> )
+    public double payForOrder(ArrayList<MerchandiseItem> itemsInCart){
+        var total=0.0;
+        for (var item : itemsInCart){
+            switch (item.getTaxibleType()){
+                case WICFood -> {
+                    total +=item.getPrice();
+                }
+                case GeneralMerchandise -> {
+                    var price=item.getPrice();
+                    var tax=price*0.0625;
+                    total+=price+tax;
+                }
+                case Clothing -> {
+                    var price=item.getPrice();
+                    var tax=0.0;
+                    if(price>175){
+                        var taxiblePrice=price-175;
+                        tax=taxiblePrice*0.0625;
+                    }
+                    total+=price+tax;
+                }
+
+            }
+        }
+        purchaseOrderBalance+=total;
+        return 0.0;
+    }
 }
