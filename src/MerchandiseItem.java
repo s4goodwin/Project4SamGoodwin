@@ -15,4 +15,7 @@ public class MerchandiseItem {
     public double getPrice(){
         return price;
     }
+    public String getName(){
+        return Name;
+    }
 }
