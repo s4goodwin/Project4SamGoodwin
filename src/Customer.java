@@ -13,5 +13,10 @@ public abstract class Customer {
         Addresses=new ArrayList<ShippingAddress>();
     }
 
-    public abstract double payForOrder(ArrayList<MerchandiseItem> itemsInOrder);
+    public abstract double payForOrder(ArrayList<MerchandiseItem> itemsInCart);
+
+    public double payOutstandingBalance(){
+        return 0.0;
+    }
 }
+

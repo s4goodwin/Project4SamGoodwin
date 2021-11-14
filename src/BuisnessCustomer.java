@@ -41,4 +41,13 @@ public class BuisnessCustomer extends Customer{
         purchaseOrderBalance+=total;
         return 0.0;
     }
+
+    @Override
+    public double payOutstandingBalance(){
+        if (purchaseOrderBalance>1000)
+            purchaseOrderBalance=purchaseOrderBalance*0.95;
+        var payvalue=purchaseOrderBalance;
+        purchaseOrderBalance=0;
+        return payvalue;
+    }
 }
