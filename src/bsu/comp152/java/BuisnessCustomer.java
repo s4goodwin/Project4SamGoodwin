@@ -1,14 +1,21 @@
+package bsu.comp152.java;
+
 import java.util.ArrayList;
 
-public class ResidentialCustomer extends Customer{
+public class BuisnessCustomer extends Customer{
+    private double purchaseOrderBalance;
 
-    public ResidentialCustomer(String nomen, int id){
-        super(nomen, id);
+    public BuisnessCustomer(String Name, int ID){
+        super(Name, ID);
+        purchaseOrderBalance=0;
     }
-    public ResidentialCustomer(String name){
+
+    public BuisnessCustomer(String name){
         super(name);
+        purchaseOrderBalance=0;
     }
 
+    @Override
     public double payForOrder(ArrayList<MerchandiseItem> itemsInCart){
         var total=0.0;
         for (var item : itemsInCart){
@@ -33,6 +40,21 @@ public class ResidentialCustomer extends Customer{
 
             }
         }
-        return total;
+        purchaseOrderBalance+=total;
+        return 0.0;
+    }
+
+    @Override
+    public double payOutstandingBalance(){
+        if (purchaseOrderBalance>1000)
+            purchaseOrderBalance=purchaseOrderBalance*0.95;
+        var payvalue=purchaseOrderBalance;
+        purchaseOrderBalance=0;
+        return payvalue;
+    }
+
+    @Override
+    public void arrangeDelivery(){
+        System.out.println("All deliveries for "+getName()+" must be from 9 to 5 mon-fri");
     }
 }

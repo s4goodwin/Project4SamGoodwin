@@ -1,3 +1,5 @@
+package bsu.comp152.java;
+
 public class ShippingAddress {
 
     private String AddressLine1;

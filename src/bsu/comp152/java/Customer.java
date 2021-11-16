@@ -1,3 +1,5 @@
+package bsu.comp152.java;
+
 import java.util.ArrayList;
 
 public abstract class Customer {
